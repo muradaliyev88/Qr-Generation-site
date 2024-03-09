@@ -1,0 +1,184 @@
+{% extends 'header.html' %}
+{% block body %}
+      {% load static %}
+        
+{% include 'navbar.html' %} 
+            <div class="page-wrapper">
+        <div class="container-xl">
+            <!-- Page title -->
+            <div class="page-header d-print-none">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <div class="page-pretitle">
+                            Overview
+                        </div>
+                        <h2 class="page-title">
+                            Barcodes
+                        </h2>
+                    </div>
+                    <!-- Page title actions -->
+                    <div class="col-auto ms-auto d-print-none">
+                        <div class="btn-list">
+                            
+                           
+                            
+                            <a href="" class="btn btn-primary d-none d-sm-inline-block">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg>
+                                Create
+                            </a>
+
+                        
+                            
+                            <a href="" class="btn btn-primary d-sm-none btn-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <line x1="12" y1="5" x2="12" y2="19" />
+                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div class="page-body">
+            <div class="container-xl">
+
+                
+                
+                
+                
+                <div class="row row-deck row-cards">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="card">
+
+                            
+                            <div class="table-responsive">
+                                <table class="table table-vcenter card-table" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Created on</th>
+                                            <th>Group</th>
+                                            <th>Name</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                                                                    <tr>
+                                                <td>1</td>
+                                                <td>02/03/2024 03:07 PM</td>
+                                                <td><a href="https://qrlite.nativecode.in/admin/barcode/group/view/general">General</a></td>
+                                                <td><a href="https://qrlite.nativecode.in/admin/barcode/barcode/65e2f3705ca47">Murad Aliyev</a></td>
+                                                                                                    <td><span
+                                                            class="badge bg-success text-white">Activated</span>
+                                                    </td>
+                                                                                                <td class="text-start">
+                                                    <span class="dropdown">
+                                                        <button class="btn dropdown-toggle align-text-top small-btn"
+                                                            data-bs-boundary="viewport" data-bs-toggle="dropdown"
+                                                            aria-expanded="false">Actions</button>
+                                                        <div class="dropdown-menu dropdown-menu-end" style="">
+                                                            <a class="dropdown-item" href="https://qrlite.nativecode.in/admin/barcode/barcode/65e2f3705ca47">Download Barcode</a>
+                                                            <a class="dropdown-item"
+                                                                href="https://qrlite.nativecode.in/admin/barcode/edit/65e2f3705ca47">Edit</a>
+                                                                                                                            <a class="dropdown-item" href="#"
+                                                                    onclick="updateBarStatus('65e2f3705ca47', 'deactive'); return false;">Deactivate</a>
+                                                                                                                        <a class="dropdown-item" href="#"
+                                                                onclick="deleteBar('65e2f3705ca47', 'delete'); return false;">Delete</a>
+                                                        </div>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                                                                    
+                                                                            </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+
+        
+        {% include 'footer.html' %} 
+    </div>
+
+
+    
+    <div class="modal modal-blur fade" id="status-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-title">Are you sure?</div>
+                    <div id="update_status"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link link-secondary me-auto"
+                        data-bs-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger" id="status_bar_code_id">Yes, proceed</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal modal-blur fade" id="delete-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-title">Are you sure?</div>
+                    <div id="delete_status"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link link-secondary me-auto"
+                        data-bs-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger" id="delete_bar_code_id">Yes, proceed</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    </div>
+
+    <!-- Scripts -->
+  
+        <script>
+        // Update Bar Status
+        function updateBarStatus(statusBarCodeId, statusBarCodeStatus) {
+            "use strict";
+            $("#status-modal").modal("show");
+            var update_status = document.getElementById("update_status");
+            update_status.innerHTML = "If you proceed, you will " + statusBarCodeStatus + " this barcode."
+            var status_link = document.getElementById("status_bar_code_id");
+            status_link.getAttribute("href");
+            status_link.setAttribute("href", "https://qrlite.nativecode.in/admin/barcode/update-barcode-status?id=" + statusBarCodeId);
+        }
+
+        // Delete Bar
+        function deleteBar(deleteBarCodeId, deleteBarCodeStatus) {
+            "use strict";
+            $("#delete-modal").modal("show");
+            var delete_status = document.getElementById("delete_status");
+            delete_status.innerHTML = "If you proceed, you will " + deleteBarCodeStatus + " this barcode."
+            var delete_link = document.getElementById("delete_bar_code_id");
+            delete_link.getAttribute("href");
+            delete_link.setAttribute("href", "https://qrlite.nativecode.in/admin/barcode/delete-barcode?id=" + deleteBarCodeId);
+        }
+    </script>
+
+    {% endblock %}
