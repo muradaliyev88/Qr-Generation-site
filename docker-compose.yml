@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    command: bash -c "source /myprojects/alienv/bin/activate && python3 manage.py runserver 0.0.0.0:7000"
+    restart: always
+    image: roses_sites
+    container_name: roses
+    volumes:
+      - .:/mydockerproject
+    ports:
+      - "7000:7000"
