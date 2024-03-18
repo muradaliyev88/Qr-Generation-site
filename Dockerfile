@@ -8,5 +8,5 @@ COPY . /myprojects/
 RUN pip install --upgrade pip
 RUN pip install virtualenv
 RUN virtualenv alienv --python=python3
-RUN /bin/bash -c "source /myprojects/alienv/bin/activate && pip install django==4.2"
+RUN /bin/bash -c "source /myprojects/alienv/bin/activate && pip install django==4.2 segno"
 COPY . .
